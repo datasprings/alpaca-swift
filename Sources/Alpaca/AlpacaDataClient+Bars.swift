@@ -12,6 +12,13 @@ public struct BarsResponse: Codable {
 }
 
 public struct Bar: Codable {
+      public enum Timeframe: String, CaseIterable {
+        case oneMin = "1Min"
+        case fiveMin = "5Min"
+        case fifteenMin = "15Min"
+        case oneDay = "1D"
+    }
+    
     let t: String
     let o: Double
     let h: Double
@@ -24,12 +31,7 @@ public struct Bar: Codable {
 
 public struct BarOLD: Codable {
 
-    public enum Timeframe: String, CaseIterable {
-        case oneMin = "1Min"
-        case fiveMin = "5Min"
-        case fifteenMin = "15Min"
-        case oneDay = "1D"
-    }
+  
     
     let t: String
     let o: Double
