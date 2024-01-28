@@ -98,17 +98,38 @@ extension AlpacaClientProtocol {
         guard let url = components?.url else {
             throw RequestError.invalidURL
         }
-        print(url)
+        print("Request URL: \(url)")
+        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue(environment.key, forHTTPHeaderField: "APCA-API-KEY-ID")
         request.setValue(environment.secret, forHTTPHeaderField: "APCA-API-SECRET-KEY")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("alpaca-swift/1.0", forHTTPHeaderField: "User-Agent")
-        request.httpBody = httpBody
+       
+        if let body = httpBody {
+        request.httpBody = body
+        print("HTTP Body: \(String(data: body, encoding: .utf8) ?? "")")
+         }
+        
+        //request.httpBody = httpBody
         request.timeoutInterval = timeoutInterval
 
-        let (data, _) = try await URLSession.shared.data(for: request)
+        //let (data, _) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+
+          // Print the raw response data
+        if let rawDataString = String(data: data, encoding: .utf8) {
+            print("Raw Response Data: \(rawDataString)")
+        }
+
+        // It's also helpful to check the response status code
+        if let httpResponse = response as? HTTPURLResponse {
+            print("HTTP Status Code: \(httpResponse.statusCode)")
+          }
+        
+        
 
         return try Utils.jsonDecoder.decode(T.self, from: data)
     }
