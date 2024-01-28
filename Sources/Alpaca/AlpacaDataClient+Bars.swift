@@ -17,7 +17,8 @@ public struct BarsResponse: Codable {
     }
 }
 
-public struct Bar: Codable {
+public struct Bar: Codable, Identifiable {
+      public var id: String { t }
       public enum Timeframe: String, CaseIterable {
         case oneMin = "1Min"
         case fiveMin = "5Min"
