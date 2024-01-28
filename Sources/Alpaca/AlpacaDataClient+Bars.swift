@@ -7,7 +7,22 @@
 
 import Foundation
 
+public struct BarsResponse: Codable {
+    let bars: [String: [Bar]]
+}
+
 public struct Bar: Codable {
+    let t: String
+    let o: Double
+    let h: Double
+    let l: Double
+    let c: Double
+    let v: Int
+    let n: Int
+    let vw: Double
+}
+
+public struct BarOLD: Codable {
 
     public enum Timeframe: String, CaseIterable {
         case oneMin = "1Min"
