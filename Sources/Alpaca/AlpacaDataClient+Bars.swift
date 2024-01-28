@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BarsResponse: Codable {
+public struct BarsResponse: Codable {
     let bars: [String: [Bar]]
     let nextPageToken: String?
 
