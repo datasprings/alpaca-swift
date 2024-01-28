@@ -25,14 +25,14 @@ public struct Bar: Codable {
         case oneDay = "1D"
     }
     
-    let t: String
-    let o: Double
-    let h: Double
-    let l: Double
-    let c: Double
-    let v: Int
-    let n: Int
-    let vw: Double
+    public let t: String
+    public let o: Double
+    public let h: Double
+    public let l: Double
+    public let c: Double
+    public let v: Int
+    public let n: Int
+    public let vw: Double
 }
 
 public struct BarOLD: Codable {
