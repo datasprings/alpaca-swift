@@ -55,7 +55,7 @@ public struct BarOLD: Codable {
 
 extension AlpacaDataClient {
 
-    public func bars(_ timeframe: Bar.Timeframe, symbols: [String], limit: Int? = nil, start: Date? = nil, end: Date? = nil, after: Date? = nil, until: Date? = nil) async throws -> [String: [Bar]] {
+    public func bars(_ timeframe: Bar.Timeframe, symbols: [String], limit: Int? = nil, start: Date? = nil, end: Date? = nil, after: Date? = nil, until: Date? = nil) async throws -> Data {
         return try await get("stocks/bars", searchParams: [
             "timeframe": timeframe.rawValue,
             "symbols": symbols.joined(separator: ","),
