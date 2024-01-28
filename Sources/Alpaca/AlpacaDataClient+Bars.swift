@@ -8,26 +8,17 @@
 import Foundation
 
 public struct Bar: Codable {
-    public enum Timeframe: String, CaseIterable {
-        case oneMin = "1Min"
-        case fiveMin = "5Min"
-        case fifteenMin = "15Min"
-        case oneDay = "1D"
-    }
+    let t: String
+    let o: Double
+    let h: Double
+    let l: Double
+    let c: Double
+    let v: Int
+    let n: Int
+    let vw: Double
 
-    let t: String // Updated to String to match the timestamp format
-    let o: Double // open
-    let h: Double // high
-    let l: Double // low
-    let c: Double // close
-    let v: Int    // volume
-
-    let n: Int    // Additional field, assuming it's an integer
-    let vw: Double // Additional field
-
-    var timeframe: Timeframe {
-        // Logic to determine the timeframe from `t` if needed
-        // ...
+    enum CodingKeys: String, CodingKey {
+        case t, o, h, l, c, v, n, vw
     }
 }
 
