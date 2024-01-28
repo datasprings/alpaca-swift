@@ -13,7 +13,7 @@ public struct Environment {
     public let secret: String
 
     internal static func data(key: String, secret: String) -> Self {
-        Environment(api: "https://data.alpaca.markets/v1", key: key, secret: secret)
+        Environment(api: "https://data.alpaca.markets/v2", key: key, secret: secret)
     }
 
     public static func live(key: String, secret: String) -> Self {
