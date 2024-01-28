@@ -8,8 +8,8 @@
 import Foundation
 
 public struct BarsResponse: Codable {
-    let bars: [String: [Bar]]
-    let nextPageToken: String?
+    public let bars: [String: [Bar]]
+    public let nextPageToken: String?
 
     enum CodingKeys: String, CodingKey {
         case bars
