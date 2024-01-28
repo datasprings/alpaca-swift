@@ -15,23 +15,20 @@ public struct Bar: Codable {
         case oneDay = "1D"
     }
 
-    private let t: Double
-    public var timeframe: Double { t }
+    let t: String // Updated to String to match the timestamp format
+    let o: Double // open
+    let h: Double // high
+    let l: Double // low
+    let c: Double // close
+    let v: Int    // volume
 
-    private let o: Double
-    public var open: Double { o }
+    let n: Int    // Additional field, assuming it's an integer
+    let vw: Double // Additional field
 
-    private let h: Double
-    public var high: Double { h }
-
-    private let l: Double
-    public var low: Double { l }
-
-    private let c: Double
-    public var close: Double { c }
-
-    private let v: Double
-    public var volume: Double { v }
+    var timeframe: Timeframe {
+        // Logic to determine the timeframe from `t` if needed
+        // ...
+    }
 }
 
 extension AlpacaDataClient {
