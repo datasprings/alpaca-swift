@@ -98,7 +98,7 @@ extension AlpacaClientProtocol {
         guard let url = components?.url else {
             throw RequestError.invalidURL
         }
-
+        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue(environment.key, forHTTPHeaderField: "APCA-API-KEY-ID")
