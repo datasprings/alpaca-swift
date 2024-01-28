@@ -7,8 +7,14 @@
 
 import Foundation
 
-public struct BarsResponse: Codable {
+struct BarsResponse: Codable {
     let bars: [String: [Bar]]
+    let nextPageToken: String?
+
+    enum CodingKeys: String, CodingKey {
+        case bars
+        case nextPageToken = "next_page_token"
+    }
 }
 
 public struct Bar: Codable {
