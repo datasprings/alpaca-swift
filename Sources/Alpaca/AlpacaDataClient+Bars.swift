@@ -8,6 +8,14 @@
 import Foundation
 
 public struct Bar: Codable {
+
+    public enum Timeframe: String, CaseIterable {
+        case oneMin = "1Min"
+        case fiveMin = "5Min"
+        case fifteenMin = "15Min"
+        case oneDay = "1D"
+    }
+    
     let t: String
     let o: Double
     let h: Double
