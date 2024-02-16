@@ -120,8 +120,9 @@ extension AlpacaClientProtocol {
 
 
           // Print the raw response data
-        if let rawDataString = String(data: data, encoding: .utf8) {
-            print("Raw Response Data: \(rawDataString)")
+       if let rawDataString = String(data: data, encoding: .utf8) {
+        let preview = rawDataString.prefix(100) // Get the first 100 characters
+        print("Raw Response Data (first 100 characters): \(preview)")
         }
 
         // It's also helpful to check the response status code
